@@ -1,0 +1,28 @@
+spring:
+  cloud:
+    gateway:
+      default-filters:
+        - DedupeResponseHeader=Access-Control-Allow-Credentials Access-Control-Allow-Origin
+      globalcors:
+          corsConfigurations:
+            '[/**]':
+              allowedOrigins: "*"
+              allowedMethods: "*"
+              allowedHeaders: "*"
+      routes:
+        - id: AUTH-SERVICE
+          uri: lb://AUTH-SERVICE
+          predicates:
+            - Path=/auth/**
+        - id: USER-SERVICE
+          uri: lb://USER-SERVICE
+          predicates:
+            - Path=/user/**
+        - id: NEWS-SERVICE
+          uri: lb://NEWS-SERVICE
+          predicates:
+            - Path=/news/**
+        - id: WISHLIST-SERVICE
+          uri: lb://WISHLIST-SERVICE
+          predicates:
+            - Path=/wishlist/**

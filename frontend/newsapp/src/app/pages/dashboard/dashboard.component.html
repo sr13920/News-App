@@ -1,0 +1,32 @@
+<mat-toolbar color="primary" class="toolbar">
+  <span>News App</span>
+  <span class="example-spacer"></span>
+  <input class="search" [(ngModel)]="searchText" placeholder="Search"/>
+  <span class="example-spacer"></span>
+  <button mat-icon-button class="example-icon" aria-label="Open menu" [matMenuTriggerFor]="menu">
+    <mat-icon>more_vert</mat-icon>
+  </button>
+</mat-toolbar>
+
+<mat-menu #menu="matMenu">
+  <button mat-menu-item (click)="logout()">Logout</button>
+  <button mat-menu-item (click)="profile()">Profile</button>
+  <button mat-menu-item (click)="wishlist()">Wishlist</button>
+</mat-menu>
+
+<div class="card-container">
+  <mat-card class="example-card" *ngFor="let news of getNews()">
+      <mat-card-header>
+        <mat-card-title-group>
+          <mat-card-title>{{news.Title}}</mat-card-title>
+          <img mat-card-lg-image src={{news.Image}} >
+        </mat-card-title-group>
+      </mat-card-header>
+      <mat-card-content>
+        {{news.Description}}
+      </mat-card-content>
+      <button mat-button class="bookmark-button" (click)="bookMark(news)">
+        <mat-icon >bookmark</mat-icon>
+      </button>
+  </mat-card>
+</div>

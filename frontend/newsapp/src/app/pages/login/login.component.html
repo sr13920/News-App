@@ -1,0 +1,83 @@
+<div class="container">
+  <div class="welcome-message">
+    <h2>Welcome to Our Platform!</h2>
+    <p>We're glad to have you here. Please login or sign up to continue.</p>
+  </div>
+
+  <div *ngIf="showLoginForm" class="form-container">
+    <h2>Login</h2>
+    <form (ngSubmit)="login()">
+      <div class="form-group">
+        <mat-form-field appearance="outline" class="form-field">
+          <mat-label>Email</mat-label>
+          <input matInput name="Email" placeholder="Email" required autocomplete="Email" [formControl]="emailFormControl" [errorStateMatcher]="matcher">
+          <mat-error *ngIf="emailFormControl.hasError('email') && !emailFormControl.hasError('required')">Please enter a valid email address</mat-error>
+          <mat-error *ngIf="emailFormControl.hasError('required')">Email is <strong>required</strong></mat-error>
+        </mat-form-field>
+  
+        <mat-form-field appearance="outline" class="form-field">
+          <mat-label>Password</mat-label>
+          <input matInput name="Password" placeholder="Password" required autocomplete="password" [type]="show ? 'text' : 'password'" [formControl]="passwordFormControl" [errorStateMatcher]="matcher">
+          <button mat-icon-button matSuffix type="button" (click)="password()">
+            <mat-icon>remove_red_eye</mat-icon>
+          </button>
+          <mat-error *ngIf="passwordFormControl.hasError('password') && !passwordFormControl.hasError('required')">Please enter a valid password</mat-error>
+          <mat-error *ngIf="passwordFormControl.hasError('required')">Password is <strong>required</strong></mat-error>
+        </mat-form-field>
+        <div *ngIf="errorMessage" class="error-login">
+          {{ errorMessage }}
+        </div>
+      </div>
+      
+      <button type="submit" class="main-button">Login</button>
+    </form>
+    <p>Don't have an account? <span href="#" (click)="toggleForm()">Signup here</span>.</p>
+  </div>
+  
+
+  <div *ngIf="showSignupForm" class="form-container">
+    <h2>Signup</h2>
+    <form (ngSubmit)="signup()">
+      <div class="form-group">
+        <mat-form-field appearance="outline" class="form-field">
+          <mat-label>First Name</mat-label>
+          <input matInput type="text" placeholder="First Name" name="firstname" [(ngModel)]="signupObj.firstname" required autocomplete="firstname">
+        </mat-form-field>
+      
+        <mat-form-field appearance="outline" class="form-field">
+          <mat-label>Last Name</mat-label>
+          <input matInput type="text" placeholder="Last Name" name="lastname" [(ngModel)]="signupObj.lastname" required autocomplete="lastname">
+        </mat-form-field>
+     
+        <mat-form-field appearance="outline" class="form-field">
+          <mat-label>Mobile</mat-label>
+          <input matInput type="text" placeholder="Mobile" name="mobile" [(ngModel)]="signupObj.mobile" required autocomplete="mobile">
+        </mat-form-field>
+     
+        <mat-form-field appearance="outline" class="form-field">
+          <mat-label>Email</mat-label>
+          <input matInput name="Email" placeholder="Email" required autocomplete="Email" [formControl]="emailSignupFormControl" [errorStateMatcher]="matcher">
+          <mat-error *ngIf="emailSignupFormControl.hasError('email') && !emailSignupFormControl.hasError('required')">Please enter a valid email address</mat-error>
+          <mat-error *ngIf="emailSignupFormControl.hasError('required')">Email is <strong>required</strong></mat-error>
+        </mat-form-field>
+  
+        <mat-form-field appearance="outline" class="form-field">
+          <mat-label>Password</mat-label>
+          <input matInput name="Password" placeholder="Password" required autocomplete="Password" [type]="show ? 'text' : 'password'" [formControl]="passwordSignupFormControl" [errorStateMatcher]="matcher">
+          <button mat-icon-button matSuffix type="button" (click)="password()">
+            <mat-icon>remove_red_eye</mat-icon>
+          </button>
+          <mat-error *ngIf="passwordSignupFormControl.hasError('password') && !passwordSignupFormControl.hasError('required')">Min Lenght must be 8 character </mat-error>
+          <mat-error *ngIf="passwordSignupFormControl.hasError('required')">Password is <strong>required</strong></mat-error>
+        </mat-form-field>
+        <!-- <div *ngIf="errorMessage" class="error-login">
+          {{ errorMessage }}
+        </div> -->
+      </div>
+      <button type="submit" class="main-button">Signup</button>
+    </form>
+    <p>Already have an account? <span href="#" (click)="toggleForm()">Login here</span>.</p>
+  </div>
+  
+
+</div>

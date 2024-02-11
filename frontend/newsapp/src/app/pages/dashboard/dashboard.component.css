@@ -1,0 +1,52 @@
+.example-card {
+    width:700px;
+    height: 300px;
+    margin-bottom: 8px;
+    border-radius: 10px;
+    border: 1px solid black;
+    margin-top: 10px;
+  }
+
+  .card-container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    max-width: max-content; 
+  margin: 0 auto;
+  position: relative;
+
+  }
+
+.bookmark-button {
+  position: absolute;
+  bottom: 16px; 
+  right: 16px; 
+}
+.example-spacer {
+  flex: 1 1 auto;
+}
+
+.toolbar{
+  height: 50px;
+}
+
+.search{
+border-radius: 10px;
+}
+
+.example-container {
+  width: 500px;
+  height: 300px;
+  border: 1px solid rgba(0, 0, 0, 0.5);
+}
+
+.example-sidenav-content {
+  display: flex;
+  height: 100%;
+  align-items: center;
+  justify-content: center;
+}
+
+.example-sidenav {
+  padding: 20px;
+}

@@ -1,0 +1,17 @@
+
+ .mat-mdc-dialog-actions {
+    display: flex;
+    justify-content: flex-end;
+  }
+  
+  
+ .mat-mdc-dialog-actions button {
+    margin-left: 8px;
+  }
+  
+ 
+  .mat-mdc-dialog-actions button.mat-button.mat-primary {
+    background-color: #1976d2;
+    color: white;
+  }
+  

@@ -1,0 +1,36 @@
+<mat-toolbar color="primary" class="toolbar">
+    <button class="button" (click)="goBack()">
+        <mat-icon mat-icon-button>arrow_back</mat-icon>
+    </button>
+</mat-toolbar>
+
+<div class="user-profile">
+    <div class="profile-picture">
+      <div class="initials">{{ user.firstname.charAt(0) }}{{ user.lastname.charAt(0) }}</div>
+    </div>
+    <form>
+      <div class="form-group">
+        <label for="mobile">Mobile:</label>
+        <input type="text" id="mobile" name="mobile" [(ngModel)]="user.mobile" />
+      </div>
+      <div class="form-group">
+        <label for="firstname">First Name:</label>
+        <input type="text" id="firstname" name="firstname" [(ngModel)]="user.firstname" />
+      </div>
+      <div class="form-group">
+        <label for="lastname">Last Name:</label>
+        <input type="text" id="lastname" name="lastname" [(ngModel)]="user.lastname" />
+      </div>
+      <div class="form-group">
+        <label for="useremail">Email:</label>
+        <input type="email" id="useremail" name="useremail" [(ngModel)]="user.useremail" />
+      </div>
+      <div class="button-container">
+        <button mat-raised-button style="margin-right: 10px;" color="primary" type="submit" (click)="openUpdateDialog(user)">Save Changes</button>
+        <button mat-raised-button color="primary" type="submit" (click)="openDeleteDialog()">Delete Account</button>
+      </div>
+    </form>
+  </div>
+  
+ 
+  
